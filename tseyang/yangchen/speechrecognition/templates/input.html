@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+{{ form|crispy }}
+
+<!DOCTYPE html>
+<html>
+   <body>
+   	<form  method="post" enctype="multipart/form-data"> 
+   {% csrf_token %}
+ 
+          <p>Name <input type="file" name="file" accept="audio/*"></p> 
+         <input type = "submit"/>
+         
+         
+      </form>
+   </body>
+</html>
+{% endblock %}

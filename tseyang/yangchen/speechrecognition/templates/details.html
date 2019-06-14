@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<p>
+	<a href="{% url 'voice'%}" class="btn btn-primary"> upload voice </a>
+</p>
+<table class="table mb=0">
+	<thead>
+		<tr>
+			<th>Title</th>
+			<th>Description</th>
+			<th>Cover</th>
+			<th>Download</th>
+			<th>Delete</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for voice in voice %}
+		<tr>
+			<td>{{ voice.title}}</td>
+			<td>{{ voice.description}}</td>
+			<td> 
+				{% if voice.cover %}
+				<img src="{{ voice.cover.url }}" alt="{{ voice.title}}" style="width:100px;">
+				{% else %}
+				<span class="text-muted">No cover </span>
+				{% endif %}
+			</td>
+			<td>
+				<a href="{{ voice.file.url}}" class="btn btn-primary btn-sm" target="_blank" >
+					download audio
+				</a>
+			</td>
+			<td>
+				<form method="post" action="{% url 'delete' voice.pk %}">
+					{% csrf_token %}
+					<button type="submit"  class="btn btn-primary btn-sm"> delete
+					</button>
+				</form>
+				<!-- <a href="{% url 'delete' voice.pk %}" class="btn btn-danger btn-sm" target="_blank" >
+					Delete
+				</a> -->
+			</td>
+
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+
+{% endblock %}
+
+<!-- <html>
+   <body>
+   
+      {% if saved %}
+         <strong>Your profile was saved.</strong>
+      {% endif %}
+      
+      {% if not saved %}
+         <strong>Your profile was not saved.</strong>
+      {% endif %}
+      
+   </body>
+</html> -->
+
+
+
