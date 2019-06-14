@@ -11,13 +11,13 @@ Major Obstacles:
 
 Annotating an audio recording is challenging. Should we label a single word, sentence or a whole conversation?
 Collecting data is complex. There are lots of audio data can be achieved from films or news. 
-Image Credit: depositphotos
-Project Description:
+
 
 
 
 
 Feature Extraction:
+
 When we do Speech Recognition tasks, MFCCs is the state-of-the-art feature since it was invented in the 1980s.
 
 This shape determines what sound comes out. If we can determine the shape accurately, this should give us an accurate representation of the phoneme being produced. The shape of the vocal tract manifests itself in the envelope of the short time power spectrum, and the job of MFCCs is to accurately represent this envelope. — Noted from: MFCC tutorial
